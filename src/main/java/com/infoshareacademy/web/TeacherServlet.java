@@ -94,7 +94,7 @@ public class TeacherServlet extends HttpServlet {
         Long courseId = Long.valueOf(courseIdStr);
         Course course = courseDao.findById(courseId);
 
-        /*p.setCourses(Arrays.asList(course));*/
+        p.setCourses(Arrays.asList(course));
 
         teacherDao.save(p);
         LOG.info("Saved a new Teacher object: {}", p);

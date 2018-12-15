@@ -11,7 +11,7 @@ public class Teacher {
 
     @Id
     @NotNull
-    @Column(name = "pesel", length = 60)
+    @Column(name = "pesel", length = 60, unique=true)
     private String pesel;
 
     @Column(name = "name")
@@ -25,7 +25,8 @@ public class Teacher {
     @ManyToMany
     @JoinTable(name = "TEACHERS_TO_COURSES",
             joinColumns = @JoinColumn(name = "teacher_id", referencedColumnName = "pesel"),
-            inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
+            inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"teacher_id", "course_id"}))
     private List<Course> courses;
 
     public Teacher() {

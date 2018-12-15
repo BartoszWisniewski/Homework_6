@@ -1,10 +1,8 @@
 package com.infoshareacademy.web;
 
 import com.infoshareacademy.dao.*;
-import com.infoshareacademy.model.Address;
-import com.infoshareacademy.model.Computer;
-import com.infoshareacademy.model.Course;
-import com.infoshareacademy.model.Student;
+import com.infoshareacademy.model.*;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -75,6 +73,22 @@ public class StudentServlet extends HttpServlet {
         Computer c2 = new Computer("HP Pavillion 321",
             "Windows 10");
         computerDao.save(c2);
+
+        // Teacher
+        Teacher teacher1 = new Teacher("12312","Michal",
+                "Kowalsky",
+                Arrays.asList(course1, course2));
+        teacherDao.save(teacher1);
+
+        Teacher teacher2 = new Teacher("32156","Adam",
+                "Skiper",
+                Arrays.asList(course2));
+        teacherDao.save(teacher2);
+
+        Teacher teacher3 = new Teacher("9874562","Hugo",
+                "Nowak",
+                Arrays.asList(course1, course2, course3));
+        teacherDao.save(teacher3);
 
         // Students
         Student student1 = new Student("Michal",
