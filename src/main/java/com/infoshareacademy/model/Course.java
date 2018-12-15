@@ -28,6 +28,9 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private List<Student> students;
 
+    @ManyToMany(mappedBy = "courses")
+    private List<Teacher> teachers;
+
     public Course() {
     }
 
@@ -59,6 +62,14 @@ public class Course {
         this.students = students;
     }
 
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Course{");
@@ -68,6 +79,11 @@ public class Course {
             .stream()
             .map(Student::getId)
             .collect(toList())
+        );
+        sb.append(", teachers=").append(teachers
+                .stream()
+                .map(Teacher::getPesel)
+                .collect(toList())
         );
         sb.append('}');
         return sb.toString();

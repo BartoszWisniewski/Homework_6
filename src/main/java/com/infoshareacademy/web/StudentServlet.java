@@ -1,9 +1,6 @@
 package com.infoshareacademy.web;
 
-import com.infoshareacademy.dao.AddressDao;
-import com.infoshareacademy.dao.ComputerDao;
-import com.infoshareacademy.dao.CourseDao;
-import com.infoshareacademy.dao.StudentDao;
+import com.infoshareacademy.dao.*;
 import com.infoshareacademy.model.Address;
 import com.infoshareacademy.model.Computer;
 import com.infoshareacademy.model.Course;
@@ -41,6 +38,9 @@ public class StudentServlet extends HttpServlet {
 
     @Inject
     private CourseDao courseDao;
+
+    @Inject
+    private TeacherDao teacherDao;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
